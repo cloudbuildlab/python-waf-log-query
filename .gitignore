@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Logs and data
+logs/
+*.log
+*.log.gz
+
+# Configuration (contains sensitive/instance-specific data)
+config/log_sources.yaml
+
+# Parsed data (optional - uncomment if you don't want to commit parsed logs)
+# logs/parsed_logs.json
+# logs/parsed_logs.csv
+
+# Analytics output (optional - uncomment if you don't want to commit analytics)
+# logs/analytics.json
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak

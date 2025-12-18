@@ -1,0 +1,54 @@
+# Log Sources Configuration
+# Define all log sources that can be synced
+#
+# Copy this file to log_sources.yaml and configure with your actual values
+# log_sources.yaml is gitignored and will not be committed
+
+log_sources:
+  your-source:
+    type: s3
+    enabled: true
+    description: "AWS WAFv2 logs (replace with your WebACL)"
+    # Firehose-delivered WAF log prefix (date/hour layout)
+    # Example object key:
+    # AWSLogs/<account-id>/WAFLogs/<region>/<web-acl>/YYYY/MM/DD/HH/<file>.log.gz
+    s3_bucket: "s3://<your-waf-bucket>/AWSLogs/<account-id>/WAFLogs/<region>/<web-acl>"
+    local_dir: "logs/your-source/raw"
+    parsed_dir: "logs/your-source/parsed"
+    credentials:
+      # Use AWS credentials from environment/aws-vault
+      # Optional: specify AWS profile name
+      profile: null # Set to "prod" if using aws-vault or named profiles
+
+  # Example of adding another WAF source (disabled by default)
+  # waf-other:
+  #   type: s3
+  #   enabled: false
+  #   description: "Another WAF WebACL"
+  #   s3_bucket: "s3://aws-waf-logs-your-bucket/AWSLogs/<account>/WAFLogs/<region>/<web-acl-name>"
+  #   local_dir: "logs/waf-other/raw"
+  #   parsed_dir: "logs/waf-other/parsed"
+  #   credentials:
+  #     profile: null
+
+
+  # Example: Add more sources as needed
+  # staging-logs:
+  #   type: s3
+  #   enabled: false
+  #   description: "Staging environment logs"
+  #   s3_bucket: "s3://staging-bucket/logs/"
+  #   local_dir: "logs/staging/raw"
+  #   parsed_dir: "logs/staging/parsed"
+  #   credentials:
+  #     profile: "staging"
+
+  # production-logs:
+  #   type: s3
+  #   enabled: false
+  #   description: "Production environment logs"
+  #   s3_bucket: "s3://prod-bucket/logs/"
+  #   local_dir: "logs/production/raw"
+  #   parsed_dir: "logs/production/parsed"
+  #   credentials:
+  #     profile: "production"

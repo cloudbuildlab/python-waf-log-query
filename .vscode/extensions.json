@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-python.black-formatter",
+    "ms-python.flake8",
+    "timonwong.shellcheck",
+    "davidanson.vscode-markdownlint",
+    "redhat.vscode-yaml"
+  ]
+}
